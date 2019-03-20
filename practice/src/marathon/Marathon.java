@@ -1,3 +1,5 @@
+package marathon;
+
 import java.util.HashMap;
 import java.util.Map;
 
