@@ -29,9 +29,23 @@ public class PhoneBook {
 //        }
 
 
+        // Comparator 재정의를 해줘야 한다.
+//        Comparator<String> lengthComparator = new Comparator<String>() {
+//            @Override
+//            public int compare(String o1, String o2) {
+//                return o1.length() - o2.length();
+//            }
+//        };
+//        Arrays.sort(phoneBook, lengthComparator);
+
+
+        // 람다 표현식으로 적용하면 한줄이면 가능하다.
 //        Arrays.sort(phoneBook, (String str1, String str2) -> str1.length() - str2.length());
+
+        // 함수형 표현으로 해도 된다.
         Arrays.sort(phoneBook, Comparator.comparingInt(String::length));
 
+        // 카테고리가 hash여서 어떻게든 hash로 해결해보려 했는데 결국은 2중 for문을 돌려서 해버렸다 -_-;
         for (int i=0; i<phoneBook.length-1; i++) {
             for (int j=i+1; j<phoneBook.length; j++) {
                 if (phoneBook[j].startsWith(phoneBook[i])) {
