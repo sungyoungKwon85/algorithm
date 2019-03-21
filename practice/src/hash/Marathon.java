@@ -1,14 +1,9 @@
-package marathon;
+package hash;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Description :
- *
- * @author 권성영/SK Planet (kkwonsy@sk.com)
- * @since 20/03/2019
- */
 public class Marathon {
     public String marathon(String[] participant, String[] completion) {
 //https://programmers.co.kr/learn/courses/30/lessons/42576
@@ -53,6 +48,21 @@ public class Marathon {
 
         return "";
 
+    }
+
+    public String anotherSolution(String[] participant, String[] completion) {
+
+        Arrays.sort(participant);
+        Arrays.sort(completion);
+
+        for (int i=0; i<completion.length; i++) {
+            if (!completion[i].equals(completion[i])) {
+                return participant[i];
+            }
+        }
+
+
+        return "";
     }
 
 }

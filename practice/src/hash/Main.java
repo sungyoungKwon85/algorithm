@@ -1,11 +1,5 @@
-package marathon;
+package hash;
 
-/**
- * Description :
- *
- * @author 권성영/SK Planet (kkwonsy@sk.com)
- * @since 20/03/2019
- */
 public class Main {
     public static void main(String[] args) {
         Marathon marathon = new Marathon();
