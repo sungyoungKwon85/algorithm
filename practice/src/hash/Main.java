@@ -9,7 +9,32 @@ public class Main {
 
         PhoneBook phoneBook = new PhoneBook();
         String[] arr = {"45123", "812", "81297", "4471", "9999", "451"};
-        System.out.println(phoneBook.solution1(arr));
+        System.out.println("PhoneBook result: " + phoneBook.solution1(arr));
+
+        Camouflage camouflage = new Camouflage();
+        // [yellow_hat, headgear], [blue_sunglasses, eyewear], [green_turban, headgear]
+        String[][] arr2D = {
+            {"yellow_hat", "headgear"},
+            {"blue_sunglasses", "eyewear"},
+            {"green_turban", "headgear"}
+        };
+        System.out.println("Camouflage result: " + camouflage.solution(arr2D));
+        String[][] arr2D2 = {
+            {"yellow_hat", "headgear"},
+            {"blue_sunglasses", "eyewear"},
+            {"green_turban", "headgear"},
+            {"green_turban2", "headgear"}
+        };
+        System.out.println("Camouflage result: " + camouflage.solution(arr2D2));
+        String[][] arr2D3 = {
+            {"yellow_hat", "headgear"},
+            {"blue_sunglasses", "eyewear"},
+            {"green_turban", "headgear"},
+            {"green_turban2", "headgear"},
+            {"shirt1", "shirt"},
+            {"shirt2", "shirt"}
+        };
+        System.out.println("Camouflage result: " + camouflage.solution(arr2D3));
     }
 
 }
