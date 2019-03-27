@@ -46,15 +46,13 @@ public class Camouflage {
 
         List<Integer> onlyLenghtList = hm.values().stream().collect(Collectors.toList());
 
-        int sum = 0;
-
         int mathSum = 1;
         for (int z : onlyLenghtList) {
+            //의상을 입는 안 입는 경우를 고려하여 + 1
             mathSum *= (z+1);
         }
-        sum += mathSum;
 
-        return sum - 1;
+        return mathSum - 1; // 아무것도 안입은 경우 -1
     }
 
 }
