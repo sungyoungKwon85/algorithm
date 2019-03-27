@@ -1,9 +1,8 @@
 package hash;
 
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -34,15 +33,28 @@ public class Camouflage {
 //[[crow_mask, face], [blue_sunglasses, face], [smoky_makeup, face]]	3
 
     public int solution(String[][] clothes) {
-//        Map<String, String> hm = new HashMap<>();
-//        for (int i=0; i<clothes.length; i++) {
-//            hm.put(clothes[i][0], clothes[i][1]);
-//        }
+        // map<종류, 종류의 개수>
+        Map<String, Integer> hm = new HashMap<>();
+        for (int i=0; i<clothes.length; i++) {
+            Integer length = hm.get(clothes[i][1]);
+            if (length == null || length == 0) {
+                hm.put(clothes[i][1], 1);
+            } else {
+                hm.put(clothes[i][1], length + 1);
+            }
+        }
 
-        return 0;
+        List<Integer> onlyLenghtList = hm.values().stream().collect(Collectors.toList());
 
+        int sum = 0;
 
+        int mathSum = 1;
+        for (int z : onlyLenghtList) {
+            mathSum *= (z+1);
+        }
+        sum += mathSum;
 
+        return sum - 1;
     }
 
 }

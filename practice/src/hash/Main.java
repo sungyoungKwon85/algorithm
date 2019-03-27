@@ -12,20 +12,25 @@ public class Main {
         System.out.println("PhoneBook result: " + phoneBook.solution1(arr));
 
         Camouflage camouflage = new Camouflage();
-        // [yellow_hat, headgear], [blue_sunglasses, eyewear], [green_turban, headgear]
-        String[][] arr2D = {
-            {"yellow_hat", "headgear"},
-            {"blue_sunglasses", "eyewear"},
-            {"green_turban", "headgear"}
-        };
-        System.out.println("Camouflage result: " + camouflage.solution(arr2D));
-        String[][] arr2D2 = {
-            {"yellow_hat", "headgear"},
-            {"blue_sunglasses", "eyewear"},
-            {"green_turban", "headgear"},
-            {"green_turban2", "headgear"}
-        };
-        System.out.println("Camouflage result: " + camouflage.solution(arr2D2));
+//        String[][] arr2D = {
+//            {"yellow_hat", "headgear"},
+//            {"blue_sunglasses", "eyewear"},
+//            {"green_turban", "headgear"}
+//        };
+//        System.out.println("Camouflage result: " + camouflage.solution(arr2D));
+//        String[][] arr2D1 = {
+//            {"yellow_hat", "headgear"},
+//            {"blue_sunglasses", "headgear"},
+//            {"green_turban", "headgear"}
+//        };
+//        System.out.println("Camouflage result: " + camouflage.solution(arr2D1));
+//        String[][] arr2D2 = {
+//            {"yellow_hat", "headgear"},
+//            {"blue_sunglasses", "eyewear"},
+//            {"green_turban", "headgear"},
+//            {"green_turban2", "headgear"}
+//        };
+//        System.out.println("Camouflage result: " + camouflage.solution(arr2D2));
         String[][] arr2D3 = {
             {"yellow_hat", "headgear"},
             {"blue_sunglasses", "eyewear"},
