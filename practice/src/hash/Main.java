@@ -49,22 +49,33 @@ public class Main {
 
         Album album = new Album();
         //[classic, pop, classic, classic, pop]	[500, 600, 150, 800, 2500]
-        String[] genres2 = {"classic", "acustic", "pop", "rock", "classic", "classic", "pop", "rock", "rock", "acustic", "kpop"};
-        int[] plays2 =       {500,       1600,    1000,   150,        800,    2500,     900,    1800,   550,    1100,     2900};
-        System.out.println("Album result: " + album.solution(genres2, plays2));
+//        String[] genres2 = {"classic", "acustic", "pop", "rock", "classic", "classic", "pop", "rock", "rock", "acustic", "kpop"};
+//        int[] plays2 =       {500,       1600,    1000,   150,        800,    2500,     900,    1800,   550,    1100,     2900};
+//        System.out.println("Album result: " + album.solution(genres2, plays2));
+//
+//        String[] genres = {"classic", "pop", "rock"};
+//        int[] plays =       {500,       600,    1000};
+//        System.out.println("Album result: " + album.solution(genres, plays));
+//
+//        String[] genres1 = {"classic", "rock", "rock", "rock"};
+//        int[] plays1 =       {500,       600,    1000,   150};
+//        System.out.println("Album result: " + album.solution(genres1, plays1));
+//
+//        String[] genres3 = {"classic", "classic", "classic"};
+//        int[] plays3 =       {500,       600,    1000};
+//        System.out.println("Album result: " + album.solution(genres3, plays3));
 
-        String[] genres = {"classic", "pop", "rock"};
-        int[] plays =       {500,       600,    1000};
-        System.out.println("Album result: " + album.solution(genres, plays));
+        String[] genres4 = {"classic"};
+        int[] plays4 =       {500};
+        System.out.println("Album result: " + album.solution(genres4, plays4));
 
-        String[] genres1 = {"classic", "rock", "rock", "rock"};
-        int[] plays1 =       {500,       600,    1000,   150};
-        System.out.println("Album result: " + album.solution(genres1, plays1));
+        String[] genres5 = {"classic", "classic", "classic", "pop", "pop", "pop", "pop"};
+        int[] plays5 =       {601,500,800,500,600,800,900};
+        System.out.println("Album result: " + album.solution(genres5, plays5));
 
-
-        String[] genres3 = {"classic", "classic", "classic"};
-        int[] plays3 =       {500,       600,    1000};
-        System.out.println("Album result: " + album.solution(genres3, plays3));
+        String[] genres6 = {"classic", "pop", "rock", "rock", "classic", "pop", "rock", "classic", "pop"};
+        int[] plays6 =       {500,      600,   1000,    500,       600,   1000,     700,    300,    1100};
+        System.out.println("Album result: " + album.solution(genres6, plays6));
     }
 
 }
