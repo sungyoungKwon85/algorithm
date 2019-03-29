@@ -1,6 +1,6 @@
 package hash;
 
-public class Main {
+public class HashMain {
     public static void main(String[] args) {
         Marathon marathon = new Marathon();
         String[] participant = {"leo", "kiki", "eden", "eden", "eden", "eden", "eden", "leo", "kiki", "kiki"};
