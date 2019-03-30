@@ -1,5 +1,11 @@
 package stackqueue;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+import java.util.Queue;
+
 public class Printer {
 /*
 일반적인 프린터는 인쇄 요청이 들어온 순서대로 인쇄합니다. 그렇기 때문에 중요한 문서가 나중에 인쇄될 수 있습니다.
@@ -27,10 +33,124 @@ priorities	location	return
 [1, 1, 9, 1, 1, 1]	0	5
  */
 
+
+    public int solution2(int[] priorities, int location) {
+
+        int count = 0;
+
+        // 일단 집어 넣음
+        List<Integer> list = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>();
+        for (int i : priorities) {
+            queue.offer(i);
+            list.add(i);
+        }
+
+
+        // 큐에서 하나씩 꺼냄
+        while (!queue.isEmpty()) {
+
+            int priority1 = queue.poll();
+            count++;
+            location--;
+
+            // 꺼낸건 리스트에서도 삭제
+            list.remove(0);
+
+            // 더 큰게 있는지 봄
+            boolean hasBiggerOne = list.stream().anyMatch(e -> e > priority1);
+
+            if (hasBiggerOne) {
+                // 뒤로 밈
+                list.add(priority1);
+                queue.offer(priority1);
+                count--;
+
+                // 민 얘가 찾는 얘면 그 인덱스를 수정함
+                if (-1 == location) {
+                    location = queue.size()-1;
+                }
+            }
+
+            // 꺼낸 녀석이면 정답
+            if (!hasBiggerOne && -1 == location) {
+                return count;
+            }
+        }
+
+        return count;
+    }
+
+
     public int solution(int[] priorities, int location) {
 
-        int answer = 0;
-        return answer;
+        // 우선순위 큐는 먼저 들어간 데이터가 나오는 일반적인 구조가 아닌
+        // 우선순위를 지정하여 그 값이 가장 높은 데이터가 가장 먼저 나온다 .
+        // 우선순위는 Comparable이나 Comparator를 이용하여 구현해주면 되고,
+        // (그러므로 우선순위의 값은 여러 값들의 조합으로 해도 된다.)
+
+
+        // !! 이슈: queue에 넣을때마다 비교를 하게 됨.
+        // !!     문제에서 원하는대로 들어가지 않음.
+        Queue<Priority> queue = new PriorityQueue<>();
+        for (int i=0; i<priorities.length; i++) {
+            queue.offer(new Priority(i, priorities[i]));
+        }
+
+        int count = 0;
+        while (!queue.isEmpty()) {
+            count++;
+            int index = queue.poll().getIndex();
+            if (location == index) {
+                return count;
+            }
+        }
+        return count;
+    }
+
+
+    // 우선순위 Queue의 요소가 되려면 Comparable이 구현되어야 한다.
+    private class Priority implements Comparable {
+        private int index;
+        private int priority;
+
+        Priority(int index, int priority) {
+            this.setIndex(index);
+            this.setPriority(priority);
+        }
+
+
+        public int getIndex() {
+            return index;
+        }
+
+        public void setIndex(int index) {
+            this.index = index;
+        }
+
+        public int getPriority() {
+            return priority;
+        }
+
+        public void setPriority(int priority) {
+            this.priority = priority;
+        }
+
+        @Override
+        public int compareTo(Object target) {
+            if (this.getPriority() < ((Priority)target).getPriority()) {
+                return 1;
+            } else if (this.getPriority() > ((Priority)target).getPriority()) {
+                return -1;
+            } else {
+                if (this.getIndex() > ((Priority) target).getIndex()) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+
+            }
+        }
     }
 
 }
