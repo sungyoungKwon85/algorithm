@@ -1,5 +1,7 @@
 package stackqueue;
 
+import java.util.Stack;
+
 /**
  * Description :
  */
@@ -31,7 +33,27 @@ public class Stick {
 //()(((()())(())()))(())	17
 
     public int solution(String arrangement) {
-        int answer = 0;
-        return answer;
+        char[] charArray = arrangement.toCharArray();
+
+        int count = 0;
+
+        Stack<Character> st = new Stack<>();
+        boolean isRecentlyPushed = false;
+        for (char c : charArray) {
+            if ('(' == c) {
+                st.push(c);
+                isRecentlyPushed = true;
+            } else {
+                if (isRecentlyPushed) {
+                    st.pop();
+                    count += st.size();
+                } else {
+                    st.pop();
+                    count++;
+                }
+                isRecentlyPushed = false;
+            }
+        }
+        return count;
     }
 }
