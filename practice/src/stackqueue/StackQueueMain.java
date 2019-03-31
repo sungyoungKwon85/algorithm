@@ -56,5 +56,65 @@ public class StackQueueMain {
         System.out.println();
         System.out.println();
 
+
+        int[] trucks1 = {7,4,5,6};
+        int bridge_length1 = 2;
+        int bridge_weight1 = 10;
+        int truck_answer1 = 8;
+        System.out.println("Truck input: " + trucks1);
+        int truckResult1 = new Truck().solution(bridge_length1, bridge_weight1, trucks1);
+        if (truckResult1 == truck_answer1) {
+            System.out.println("Truck result is " + truckResult1);
+        } else {
+            System.out.println("Truck result is not correct, result is " + truckResult1);
+        }
+
+        int[] trucks2 = {7,4,5,6,2};
+        int bridge_length2 = 2;
+        int bridge_weight2 = 10;
+        int truck_answer2 = 7;
+        System.out.println("Truck input: " + trucks2);
+        int truckResult2 = new Truck().solution(bridge_length2, bridge_weight2, trucks2);
+        if (truckResult2 == truck_answer2) {
+            System.out.println("Truck result is " + truckResult2);
+        } else {
+            System.out.println("Truck result is not correct, result is " + truckResult2);
+        }
+
+        int[] trucks3 = {10,10,10,10,10,10,10,10,10,10};
+        int bridge_length3 = 100;
+        int bridge_weight3 = 100;
+        int truck_answer3 = 110;
+        System.out.println("Truck input: " + trucks3);
+        int truckResult3 = new Truck().solution(bridge_length3, bridge_weight3, trucks3);
+        if (truckResult3 == truck_answer3) {
+            System.out.println("Truck result is " + truckResult3);
+        } else {
+            System.out.println("Truck result is not correct, result is " + truckResult3);
+        }
+
+        int[] trucks4 = {9,10,11,10,15,16,13,6,17,20};
+        int bridge_length4 = 10;
+        int bridge_weight4 = 20;
+        int truck_answer4 = 60;
+        System.out.println("Truck input: " + trucks4);
+        int truckResult4 = new Truck().solution(bridge_length4, bridge_weight4, trucks4);
+        if (truckResult4 == truck_answer4) {
+            System.out.println("Truck result is " + truckResult4);
+        } else {
+            System.out.println("Truck result is not correct, result is " + truckResult4);
+        }
+
+        int[] trucks5 = {9,10,13,10,15,16,13,6,17,20};
+        int bridge_length5 = 10;
+        int bridge_weight5 = 20;
+        int truck_answer5 = 70;
+        System.out.println("Truck input: " + trucks5);
+        int truckResult5 = new Truck().solution(bridge_length5, bridge_weight5, trucks5);
+        if (truckResult5 == truck_answer5) {
+            System.out.println("Truck result is " + truckResult5);
+        } else {
+            System.out.println("Truck result is not correct, result is " + truckResult5);
+        }
     }
 }
