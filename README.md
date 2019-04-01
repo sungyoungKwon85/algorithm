@@ -13,3 +13,5 @@ Practice the algorithm
 5. 코딩테스트 연습 > 스택큐 > 막대기
 
 6. 코딩테스트 연습 > 스택큐 > Printer
+
+7. 코딩테스트 연습 > 스택큐 > Truck
