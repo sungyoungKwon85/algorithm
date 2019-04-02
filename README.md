@@ -15,3 +15,6 @@ Practice the algorithm
 6. 코딩테스트 연습 > 스택큐 > Printer
 
 7. 코딩테스트 연습 > 스택큐 > Truck
+
+8. 코딩테스트 연습 > 스택큐 > 기능개발
+
