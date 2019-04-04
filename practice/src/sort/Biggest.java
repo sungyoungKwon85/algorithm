@@ -79,12 +79,12 @@ numbers	return
 //            }
         });
 
-        String answer = "";
+        StringBuilder sb = new StringBuilder();
         for (int i=list.size()-1; i>=0; i--) {
-            answer += list.get(i);
+            sb.append(list.get(i));
         }
 
-        return answer;
+        return sb.toString();
     }
 
     public static void main(String[] args) {
