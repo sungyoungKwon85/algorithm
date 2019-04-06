@@ -34,16 +34,60 @@ citations	return
     public int solution(int[] citations) {
         Arrays.sort(citations);
 
+        int h = citations.length;
+        int count = 0;
 
+        while (h > 0) {
+            for (int i = citations.length - 1; i >= 0; i--) {
+                int citation = citations[i];
+                if (citation >= h) {
+                    count++;
+                }
+            }
+            // !! 문제를 잘 이해하자 -_-
+            if (h <= count) {
+                return h;
+            }
+            count = 0;
+            h--;
+        }
 
+        return 0;
+    }
 
+    // !! 다른 사람꺼!!!
+    public int solution2(int[] citations) {
+        Arrays.sort(citations);
 
+        int max = 0;
+        for(int i = citations.length-1; i > -1; i--){
+            int min = (int)Math.min(citations[i], citations.length - i);
+            if(max < min) max = min;
+        }
 
-        int answer = 0;
-        return answer;
+        return max;
     }
 
     public static void main(String[] args) {
+
+        if (2 == new Hindex().solution(new int[]{2, 2, 2})) {
+            System.out.println("test 02 has been succeeded!");
+        } else {
+            System.out.println("test 02 has been failed!");
+        }
+//
+        if (5 == new Hindex().solution(new int[]{1,2,3,4,5,6,7,8,9})) {
+            System.out.println("test 01 has been succeeded!");
+        } else {
+            System.out.println("test 01 has been failed!");
+        }
+
+        if (1 == new Hindex().solution(new int[]{1})) {
+            System.out.println("test 0 has been succeeded!");
+        } else {
+            System.out.println("test 0 has been failed!");
+        }
+
         if (3 == new Hindex().solution(new int[]{3, 0, 6, 1, 5})) {
             System.out.println("test 1 has been succeeded!");
         } else {
@@ -51,15 +95,45 @@ citations	return
         }
 
         if (2 == new Hindex().solution(new int[]{22, 42})) {
-            System.out.println("test 1 has been succeeded!");
+            System.out.println("test 2 has been succeeded!");
         } else {
-            System.out.println("test 1 has been failed!");
+            System.out.println("test 2 has been failed!");
         }
 
-        if (2 == new Hindex().solution(new int[]{22, 42})) {
-            System.out.println("test 1 has been succeeded!");
+        if (0 == new Hindex().solution(new int[]{0, 0})) {
+            System.out.println("test 3 has been succeeded!");
         } else {
-            System.out.println("test 1 has been failed!");
+            System.out.println("test 3 has been failed!");
+        }
+
+        if (1 == new Hindex().solution(new int[]{0, 1})) {
+            System.out.println("test 4 has been succeeded!");
+        } else {
+            System.out.println("test 4 has been failed!");
+        }
+
+        if (2 == new Hindex().solution(new int[]{0, 1, 2, 3})) {
+            System.out.println("test 6 has been succeeded!");
+        } else {
+            System.out.println("test 6 has been failed!");
+        }
+
+        if (2 == new Hindex().solution(new int[]{0, 1, 2, 4})) {
+            System.out.println("test 7 has been succeeded!");
+        } else {
+            System.out.println("test 7 has been failed!");
+        }
+
+        if (2 == new Hindex().solution(new int[]{0, 1, 3, 4})) {
+            System.out.println("test 8 has been succeeded!");
+        } else {
+            System.out.println("test 8 has been failed!");
+        }
+
+        if (3 == new Hindex().solution(new int[]{0, 5, 3, 4})) {
+            System.out.println("test 9 has been succeeded!");
+        } else {
+            System.out.println("test 9 has been failed!");
         }
     }
 }
