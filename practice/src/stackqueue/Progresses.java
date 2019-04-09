@@ -8,8 +8,6 @@ import java.util.Queue;
 /**
  * Description :
  *
- * @author 권성영/SK Planet (kkwonsy@sk.com)
- * @since 02/04/2019
  */
 public class Progresses {
 /*
