@@ -28,3 +28,13 @@ Hindex
 Exhaustive
 13. 코딩테스트 연습 > 완전탐색 > 소수찾기
 PrimeNumber
+14. 코딩테스트 연습 > 완전탐색 > 숫자야구
+PrimeNumber
+15. 코딩테스트 연습 > DFS/BFS > 타겟넘버
+TargetNumber
+16. 코딩테스트 연습 > DFS/BFS > 네트워
+Network
+17. 코딩테스트 연습 > DFS/BFS > 단어변환
+ConvertWord
+18. 코딩테스트 연습 > DFS/BFS > 여행경료
+TravelPath
