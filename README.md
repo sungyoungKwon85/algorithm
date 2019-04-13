@@ -27,9 +27,9 @@ Hindex
 12. 코딩테스트 연습 > 완전탐색 > 모의고사
 Exhaustive
 13. 코딩테스트 연습 > 완전탐색 > 소수찾기
-PrimeNumber
+Permutation
 14. 코딩테스트 연습 > 완전탐색 > 숫자야구
-PrimeNumber
+Baseball
 15. 코딩테스트 연습 > DFS/BFS > 타겟넘버
 TargetNumber
 16. 코딩테스트 연습 > DFS/BFS > 네트워

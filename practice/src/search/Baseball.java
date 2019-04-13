@@ -2,13 +2,13 @@ package search;
 
 /**
  * Description :
- *
  */
 public class Baseball {
 /*
 숫자 야구 게임이란 2명이 서로가 생각한 숫자를 맞추는 게임입니다. 게임해보기
 
-각자 서로 다른 1~9까지 3자리 임의의 숫자를 정한 뒤 서로에게 3자리의 숫자를 불러서 결과를 확인합니다. 그리고 그 결과를 토대로 상대가 정한 숫자를 예상한 뒤 맞힙니다.
+각자 서로 다른 1~9까지 3자리 임의의 숫자를 정한 뒤 서로에게 3자리의 숫자를 불러서 결과를 확인합니다.
+그리고 그 결과를 토대로 상대가 정한 숫자를 예상한 뒤 맞힙니다.
 
 * 숫자는 맞지만, 위치가 틀렸을 때는 볼
 * 숫자와 위치가 모두 맞을 때는 스트라이크
@@ -25,7 +25,8 @@ A : 489
 B : 0스트라이크 1볼.
 이때 가능한 답은 324와 328 두 가지입니다.
 
-질문한 세 자리의 수, 스트라이크의 수, 볼의 수를 담은 2차원 배열 baseball이 매개변수로 주어질 때, 가능한 답의 개수를 return 하도록 solution 함수를 작성해주세요.
+질문한 세 자리의 수, 스트라이크의 수, 볼의 수를 담은 2차원 배열 baseball이 매개변수로 주어질 때,
+가능한 답의 개수를 return 하도록 solution 함수를 작성해주세요.
 
 제한사항
 질문의 수는 1 이상 100 이하의 자연수입니다.
@@ -37,9 +38,107 @@ baseball	return
 문제에 나온 예와 같습니다.
  */
 
-    public int solution(int[][] baseball) {
-        int answer = 0;
-        return answer;
+    public static void main(String[] args) {
+        int[][] arr1 = {
+            {123, 1, 1},
+            {356, 1, 0},
+            {327, 2, 0},
+            {489, 0, 1}
+        };
+
+        if (2 == new Baseball().solution(arr1)) {
+            System.out.println("1 succeeded");
+        }
     }
 
+    private int count;
+    private int[][] baseball;
+
+    public int solution(int[][] arr1) {
+        count = 0;
+        baseball = arr1;
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int n = arr.length;
+        int r = 3;
+        int[] combArr = new int[r];
+        doCombination(combArr, arr, n, r, 0, 0);
+
+        System.out.println("$$$$$$$$$$$$$$$$$$$$ count: " + count);
+        return count;
+    }
+
+    private void doCombination(int[] combArr, int[] arr, int n, int r, int index, int target) {
+        if (r == 0) {
+            doPermutation(combArr, 0);
+        } else if (target == n) {
+            return;
+        } else {
+            combArr[index] = arr[target];
+            doCombination(combArr, arr, n, r - 1, index + 1, target + 1);
+            doCombination(combArr, arr, n, r, index, target + 1);
+        }
+    }
+
+    public void doPermutation(int[] arr, int startIdx) {
+        int length = arr.length;
+        if (startIdx == length - 1) {
+            for (int n : arr) {
+                System.out.print(n + " ");
+            }
+            System.out.println();
+            gameChecker(arr);
+            return;
+        }
+
+        for (int i = startIdx; i < length; i++) {
+            swap(arr, startIdx, i);
+            doPermutation(arr, startIdx + 1);
+            swap(arr, startIdx, i);
+        }
+    }
+
+    private void swap(int[] arr, int n1, int n2) {
+        int temp = arr[n1];
+        arr[n1] = arr[n2];
+        arr[n2] = temp;
+    }
+
+    private void gameChecker(int[] res) {
+        boolean isAllSame = true;
+        for (int i = 0; i < baseball.length; i++) {
+            int[] shots = toIntArray(baseball[i][0]);
+            int strike = baseball[i][1];
+            int ball = baseball[i][2];
+
+            int realS = 0;
+            int realB = 0;
+            for (int j = 0; j < shots.length; j++) {
+                if (shots[j] == res[j]) {
+                    realS++;
+                    continue;
+                }
+                for (int k = 0; k < res.length; k++) {
+                    if (shots[k] != res[k] && shots[j] == res[k]) {
+                        realB++;
+                        break;
+                    }
+                }
+            }
+            if (realS != strike || realB != ball) {
+                isAllSame = false;
+            }
+        }
+        if (isAllSame) {
+            count++;
+        }
+    }
+
+    private int[] toIntArray(int some) {
+        String str = String.valueOf(some);
+        int[] shots = new int[str.length()];
+        for (int j = 0; j < str.length(); j++) {
+            shots[j] = str.charAt(j) - '0';
+        }
+        return shots;
+    }
 }
