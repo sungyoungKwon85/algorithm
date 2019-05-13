@@ -83,7 +83,6 @@ public class Solution2 {
     class JohnImage {
 
         private String sequence;
-        private String sequenceString;
         private String title;
         private String city;
         private Date date;
